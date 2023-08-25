@@ -1,0 +1,26 @@
+#!/bin/bash
+echo "Finding Directory"
+cd "${0%/*}"
+echo "..."
+echo "Processing .asc files"
+wolframscript -file ascProc.wls
+echo "..."
+echo "Running arPLS"
+cp -R "arPLS" "Processed"
+cd "Processed"
+files=$PWD
+echo $PWD
+mkdir "Fitted"
+mkdir "Baseline"
+for f in *.txt
+do
+  echo "Fitting $f"
+  ./arPLS $f 100000
+  mv $f "Baseline"
+  mv filtered_$f "Fitted"
+done
+rm "arPLS"
+cd ..
+echo "Creating Graphs"
+wolframscript -file ascPlotter.wls
+echo "Done!"
