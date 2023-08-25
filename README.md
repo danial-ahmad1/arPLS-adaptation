@@ -2,7 +2,8 @@
 Uses arPLS from: https://github.com/heal-research/arPLS as a custom fitting solution for data output from a Raman system.
 
 Danial Ahmad
-UR Nanomembrane Research Group
+
+UR Nano
 
 arPLS_processor uses a fitting algorithm called arPLS for Raman spectra baseline correction. This code is designed to be used with output from Berger Lab's Raman microscope system. It can be modified for other files from other microscopes by editing the ascProc.wls file.
 
